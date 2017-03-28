@@ -1,21 +1,40 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>The AJAXson 5</title>
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <script type="text/javascript" src="request-gif.js"></script>
 </head>
+
 <body>
-    <h1>The AJAXson 5</h1>
 
-    <form id="form-gif-request" />
-        <label>What kind of Jackson 5 related gif do you want?</label>
-        <input name="tag" type="text"/>
-        <input type="submit" value="Get my Gif!" />
-    </form>
+    <header>
+        <h1>The AJAXson 5</h1>
+    </header>
 
-    <img id="gif" src="" hidden="true"/>
-    <p id="feedback" hidden="true`"></p>
+    <section id='input-form'>
+        <form id="form-gif-request" />
+            <label>
+                What kind of Jackson 5 related gif do you want?
+                <input name="tag" type="text"/>
+            </label>
+            <div id="riddle">
+                <label for="riddle">
+                    Prove You are not a robot by answering this riddle:
+                    <input type="text" name="riddle"/>
+                    <strong> Jacksons are better than 1.</strong>
+                </label>
+            </div>
+            <input type="submit" value="Get my Gif!" />
+        </form>
+    </section>
+
+    <section id='display'>
+        <p id="feedback" hidden="true"></p>
+        <img id="gif" src="" hidden="true" />
+    </section>
 
 </body>
+
 </html>
