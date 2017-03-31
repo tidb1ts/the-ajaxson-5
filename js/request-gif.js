@@ -20,7 +20,7 @@ function fetchAndDisplayGif(event) {
 
     // get the user's input text from the DOM
     var searchQuery = $('#form-gif-request input').val(), // TODO should be e.g. "dance"
-        riddleInput = $('#riddle input').val();
+        riddleInput = $('#riddle-input').val();
         console.log('***** searchQuery *****', searchQuery);
     // configure a few parameters to attach to our request
     var params = {
@@ -32,16 +32,18 @@ function fetchAndDisplayGif(event) {
     if (riddleInput !== '5') {
         $('#gif').attr('src', 'https://media.giphy.com/media/uOAXDA7ZeJJzW/giphy.gif');
         setGifLoadedStatus(true);
-
-        $('#feedback').text('No Jackson 5 gifs for you!')
-                        .attr('hidden', false);
+        $('#riddle .input-group').addClass('has-error');
+        $('#error').attr('hidden', false);
 
     } else {
         // TODO
         // give the user a "Loading..." message while they wait
         $('#feedback').text('Getting you a random Jackson 5 ' +
                             searchQuery + ' gif...');
-
+        if ($('#riddle .input-group').hasClass('has-error')) {
+            $('#riddle .input-group').removeClass('has-error');
+            $("#error").attr("hidden", true);
+        }
 
 
         // make an ajax request for a random GIF
